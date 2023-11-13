@@ -1,5 +1,7 @@
+--The code for this project was collaboratively developed with valuable contributions from Laim Cauley, Jill Zimmer, and Sreelatha M.
 
--- 3. Deliverables
+
+--Deliverables
 --PART A. Develop some general recommendations about the price range, genre, content rating, or any other app characteristics that the company should target.
 WITH app_store AS (SELECT name,size_bytes AS size, price::money, review_count::int, rating, content_rating, primary_genre, 'app_store' 
 				   AS store FROM app_store_apps),
@@ -16,7 +18,7 @@ WHERE play_store.review_count > 100000  OR app_store.review_count > 100000
 GROUP BY name, play_store.content_rating, play_store.primary_genre 
 ORDER BY rating DESC;
 --Based on this query we believe the company should target apps with a price above $2.50 range, content
--- rating of 4+, games that are some type of game genre, with a 4.6 rating or above.
+-- rating of 4+, apps that belong to the game genre, with a 4.6 rating or above.
 
 
 
